@@ -2,6 +2,7 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { getPrisma } from '@/lib/prisma'
 import { ensureDatabaseInitialized } from '@/lib/db-init'
+import { mockDb } from '@/lib/mock-db'
 import bcrypt from 'bcryptjs'
 
 
@@ -35,11 +36,17 @@ const handler = NextAuth({
             return null
           }
 
-          await ensureDatabaseInitialized()
-          const prisma = getPrisma()
-          const user = await prisma.user.findUnique({
-            where: { email: credentials.email }
-          })
+          let user
+          try {
+            await ensureDatabaseInitialized()
+            const prisma = getPrisma()
+            user = await prisma.user.findUnique({
+              where: { email: credentials.email }
+            })
+          } catch (prismaError) {
+            console.log('Prisma failed, using mock database for auth:', prismaError)
+            user = await mockDb.findUserByEmail(credentials.email)
+          }
 
           if (!user || !user.password) {
             return null
