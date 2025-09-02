@@ -2354,3 +2354,5 @@
 2025-09-02T15:45:06.618124Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
 2025-09-02T15:45:22.617641Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
 2025-09-02T15:45:22.617839Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:47:42.018407Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T15:47:42.018458Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
