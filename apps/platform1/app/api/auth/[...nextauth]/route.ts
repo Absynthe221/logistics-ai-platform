@@ -7,6 +7,8 @@ import bcrypt from 'bcryptjs'
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
+  // Needed behind proxies/CDNs (e.g., Netlify) so NextAuth trusts the host header
+  trustHost: true,
   providers: [
     CredentialsProvider({
       name: 'credentials',
