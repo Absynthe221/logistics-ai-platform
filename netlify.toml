@@ -1,9 +1,6 @@
 [build]
-  base = "apps/platform1"
-  command = "npm ci || npm install && npm run build"
-  publish = ".next"
+  command = "npm ci --prefix apps/platform1 || npm install --prefix apps/platform1 && npm run --prefix apps/platform1 build"
+  publish = "apps/platform1/.next"
 
-[build.environment]
-  NODE_VERSION = "18"
-  NEXT_TELEMETRY_DISABLED = "1"
-  NPM_FLAGS = "--legacy-peer-deps"
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
