@@ -9,6 +9,18 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   // Needed behind proxies/CDNs (e.g., Netlify) so NextAuth trusts the host header
   trustHost: true,
+  debug: true,
+  logger: {
+    error(code, metadata) {
+      console.error('NextAuth error:', code, metadata)
+    },
+    warn(code) {
+      console.warn('NextAuth warn:', code)
+    },
+    debug(code, metadata) {
+      console.debug('NextAuth debug:', code, metadata)
+    }
+  },
   providers: [
     CredentialsProvider({
       name: 'credentials',
