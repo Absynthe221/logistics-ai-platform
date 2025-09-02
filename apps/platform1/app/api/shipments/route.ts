@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession()
-    if (!session) {
+    if (!session || !session.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession()
-    if (!session) {
+    if (!session || !session.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -60,7 +60,8 @@ export async function POST(request: NextRequest) {
         volume: parseFloat(volume),
         value: parseFloat(value),
         category,
-        status: 'PENDING'
+        status: 'PENDING',
+        shipmentType: 'DOMESTIC'
       },
       include: {
         shipper: { select: { name: true, email: true } }

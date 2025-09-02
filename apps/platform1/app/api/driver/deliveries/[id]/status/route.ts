@@ -8,7 +8,7 @@ export async function PATCH(
 ) {
   try {
     const session = await getServerSession()
-    if (!session || session.user.role !== 'DRIVER') {
+    if (!session || !session.user || session.user.role !== 'DRIVER') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 

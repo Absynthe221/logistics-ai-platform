@@ -1,16 +1,7 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
-
-// Create a direct Prisma client for NextAuth
-const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: 'file:/Users/som/logistics-ai-platform/packages/database/dev.db'
-    }
-  }
-})
 
 
 
@@ -78,8 +69,7 @@ const handler = NextAuth({
     }
   },
   pages: {
-    signIn: '/auth/signin',
-    signUp: '/auth/signup'
+    signIn: '/auth/signin'
   },
 
 })

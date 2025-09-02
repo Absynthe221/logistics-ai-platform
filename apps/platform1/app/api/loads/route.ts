@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession()
-    if (!session) {
+    if (!session || !session.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -24,10 +24,7 @@ export async function GET(request: NextRequest) {
     const loads = await prisma.load.findMany({
       where,
       include: {
-        shipper: { select: { name: true, email: true, rating: true } },
-        origin: true,
-        destination: true,
-        _count: { select: { bids: true } }
+        shipper: { select: { name: true, email: true } }
       },
       orderBy: { createdAt: 'desc' }
     })
@@ -42,7 +39,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession()
-    if (!session) {
+    if (!session || !session.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -62,7 +59,11 @@ export async function POST(request: NextRequest) {
         pickupDate: new Date(pickupDate),
         deliveryDate: new Date(deliveryDate),
         requirements,
-        status: 'available'
+        status: 'available',
+        maxWeight: parseFloat(weight),
+        maxVolume: parseFloat(volume),
+        vehicleType: 'TRUCK',
+        cargoType: 'GENERAL'
       },
       include: {
         shipper: { select: { name: true, email: true } }

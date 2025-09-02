@@ -332,7 +332,7 @@ export function SendPackagesDashboard() {
       setFormData(prev => ({
         ...prev,
         [field]: {
-          ...prev[field],
+          ...(prev as any)[field],
           [nestedField]: value
         }
       }))
@@ -349,7 +349,7 @@ export function SendPackagesDashboard() {
     setFormData(prev => ({
       ...prev,
       [section]: {
-        ...prev[section],
+        ...(prev[section] as any),
         [field]: value
       }
     }))

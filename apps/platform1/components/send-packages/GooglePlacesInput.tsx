@@ -6,7 +6,7 @@ import { Search, MapPin, X } from 'lucide-react'
 interface GooglePlacesInputProps {
   value: string
   onChange: (value: string) => void
-  onAddressSelect: (address: AddressData) => void
+  onAddressSelect: (address: ParsedAddress) => void
   placeholder: string
   label: string
   required?: boolean

@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession()
-    if (!session || session.user.role !== 'DRIVER') {
+    if (!session || !session.user || session.user.role !== 'DRIVER') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -19,8 +19,6 @@ export async function GET(request: NextRequest) {
       where,
       include: {
         shipper: { select: { name: true, phone: true } },
-        origin: true,
-        destination: true,
         trackingEvents: { orderBy: { timestamp: 'desc' }, take: 1 }
       },
       orderBy: { createdAt: 'desc' }

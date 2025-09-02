@@ -27,11 +27,8 @@ export async function GET(request: NextRequest) {
         shipper: { select: { name: true, email: true, phone: true } },
         carrier: { select: { name: true, email: true, phone: true } },
         trackingEvents: {
-          orderBy: { timestamp: 'desc' },
-          include: { location: true }
-        },
-        origin: true,
-        destination: true
+          orderBy: { timestamp: 'desc' }
+        }
       }
     })
 

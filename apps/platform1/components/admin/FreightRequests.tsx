@@ -21,7 +21,11 @@ interface FreightRequest {
   id: string
   barcode: string
   shipperName: string
+  shipperEmail?: string
+  shipperPhone?: string
   consigneeName: string
+  consigneeEmail?: string
+  consigneePhone?: string
   freightType: string
   transportMode: string
   cargoDescription: string
@@ -113,7 +117,7 @@ export function FreightRequests() {
           <div class="section">
             <h3>Shipper Details</h3>
             <p>${freight.shipperName}</p>
-            <p>${freight.shipperContact}</p>
+            <p>Contact: ${freight.shipperName}</p>
             <p>${freight.shipperEmail}</p>
             <p>${freight.shipperPhone}</p>
           </div>
@@ -121,7 +125,7 @@ export function FreightRequests() {
           <div class="section">
             <h3>Consignee Details</h3>
             <p>${freight.consigneeName}</p>
-            <p>${freight.consigneeContact}</p>
+            <p>Contact: ${freight.consigneeName}</p>
             <p>${freight.consigneeEmail}</p>
             <p>${freight.consigneePhone}</p>
           </div>
