@@ -4,7 +4,7 @@ export const env = {
   NEXTAUTH_URL: process.env.NEXTAUTH_URL || (isProduction ? 'https://logisticsai.netlify.app' : 'http://localhost:3001'),
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || (isProduction ? 'your-production-secret-key-change-this' : 'dev-secret'),
   // Use in-memory SQLite for production if no DATABASE_URL is provided
-  DATABASE_URL: process.env.DATABASE_URL || (isProduction ? 'file:./tmp/prod.db' : 'file:../../packages/database/dev.db')
+  DATABASE_URL: process.env.DATABASE_URL || (isProduction ? ':memory:' : 'file:../../packages/database/dev.db')
 }
 
 // Log environment status in production for debugging

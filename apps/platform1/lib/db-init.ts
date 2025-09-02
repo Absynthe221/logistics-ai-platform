@@ -11,18 +11,34 @@ export async function ensureDatabaseInitialized() {
     // Test if database is accessible
     await prisma.$queryRaw`SELECT 1`
     
-    // Check if tables exist, if not create them
-    const tables = await prisma.$queryRaw`
-      SELECT name FROM sqlite_master 
-      WHERE type='table' AND name='users'
-    ` as any[]
-    
-    if (tables.length === 0) {
-      console.log('Database not initialized, running migrations...')
-      // Run Prisma migrations
-      const { execSync } = require('child_process')
-      execSync('npx prisma db push', { stdio: 'inherit' })
-      console.log('Database initialized successfully')
+    // For in-memory databases, we need to create tables manually
+    if (process.env.NODE_ENV === 'production') {
+      console.log('Initializing in-memory database...')
+      
+      // Create basic tables if they don't exist
+      await prisma.$executeRaw`
+        CREATE TABLE IF NOT EXISTS users (
+          id TEXT PRIMARY KEY,
+          email TEXT UNIQUE NOT NULL,
+          password TEXT,
+          phone TEXT UNIQUE,
+          name TEXT NOT NULL,
+          avatar TEXT,
+          role TEXT DEFAULT 'SHIPPER',
+          status TEXT DEFAULT 'ACTIVE',
+          companyId TEXT,
+          companyName TEXT,
+          businessType TEXT,
+          location TEXT,
+          address TEXT,
+          verification TEXT,
+          createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+          lastLoginAt DATETIME
+        )
+      `
+      
+      console.log('In-memory database initialized successfully')
     }
     
     isInitialized = true
