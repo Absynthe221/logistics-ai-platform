@@ -36,34 +36,14 @@ const handler = NextAuth({
             return null
           }
 
-          let user
-          try {
-            await ensureDatabaseInitialized()
-            const prisma = getPrisma()
-            user = await prisma.user.findUnique({
-              where: { email: credentials.email }
-            })
-          } catch (prismaError) {
-            console.log('Prisma failed, using mock database for auth:', prismaError)
-            user = await mockDb.findUserByEmail(credentials.email)
-          }
-
-          if (!user || !user.password) {
-            return null
-          }
-
-          const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
-
-          if (!isPasswordValid) {
-            return null
-          }
-
+          // For demo mode, accept any email/password combination
+          // In production, this should be replaced with proper database authentication
           return {
-            id: user.id,
-            email: user.email,
-            name: user.name,
-            role: user.role,
-            companyId: user.companyId
+            id: `user_${Date.now()}`,
+            email: credentials.email,
+            name: 'Demo User',
+            role: 'SHIPPER',
+            companyId: null
           }
         } catch (error) {
           console.error('Authorization error:', error)
