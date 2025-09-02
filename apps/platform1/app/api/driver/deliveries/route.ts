@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     })
 
     // Transform to driver-friendly format
-    const driverDeliveries = deliveries.map(delivery => ({
+    const driverDeliveries = deliveries.map((delivery: any) => ({
       id: delivery.id,
       barcode: delivery.barcode,
       origin: delivery.origin,
