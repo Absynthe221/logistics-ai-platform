@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getPrisma } from '@/lib/prisma'
+import { ensureDatabaseInitialized } from '@/lib/db-init'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
   try {
+    await ensureDatabaseInitialized()
     const prisma = getPrisma()
     const { name, email, phone, password, role, companyName } = await request.json()
 

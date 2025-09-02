@@ -2278,3 +2278,28 @@
 2025-09-02T15:21:49.860186Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
 2025-09-02T15:21:56.259856Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/prisma.ts")}
 2025-09-02T15:21:56.259923Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:05.799138Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/env.ts")}
+2025-09-02T15:23:05.800741Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:21.062830Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/prisma.ts")}
+2025-09-02T15:23:21.062850Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:21.859239Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/7.cookie")}
+2025-09-02T15:23:21.859257Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T15:23:32.457241Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/db-init.ts")}
+2025-09-02T15:23:32.457259Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:32.757894Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/db-init.ts")}
+2025-09-02T15:23:32.757922Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:32.860916Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/db-init.ts")}
+2025-09-02T15:23:32.861012Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:32.861085Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T15:23:44.357381Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/signup/route.ts")}
+2025-09-02T15:23:44.357400Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:44.462742Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/signup/route.ts")}
+2025-09-02T15:23:44.462761Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:44.462826Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T15:23:51.057418Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T15:23:51.057439Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:51.160070Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T15:23:51.160300Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T15:23:51.160371Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T15:23:57.458590Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T15:23:57.458650Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))

@@ -14,12 +14,23 @@ export function getPrisma(): PrismaClient {
     })
   }
   
-  prismaInstance = new PrismaClient({
-    datasources: {
-      db: {
-        url: env.DATABASE_URL
+  try {
+    prismaInstance = new PrismaClient({
+      datasources: {
+        db: {
+          url: env.DATABASE_URL
+        }
       }
-    }
-  })
-  return prismaInstance
+    })
+    
+    // Test connection
+    prismaInstance.$connect().catch(err => {
+      console.error('Database connection failed:', err)
+    })
+    
+    return prismaInstance
+  } catch (error) {
+    console.error('Prisma client creation failed:', error)
+    throw error
+  }
 }
