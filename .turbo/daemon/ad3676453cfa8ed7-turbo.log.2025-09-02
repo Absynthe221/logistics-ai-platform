@@ -2150,3 +2150,24 @@
 2025-09-02T06:02:54.852731Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/components/send-packages/SendPackagesDashboard.tsx"), AnchoredSystemPathBuf("apps/platform1/app/api/freight/route.ts"), AnchoredSystemPathBuf("apps/platform1/components/admin/FreightRequests.tsx"), AnchoredSystemPathBuf("apps/platform1/components/send-packages/GooglePlacesInput.tsx"), AnchoredSystemPathBuf("apps/platform1/app/api/tracking/route.ts")}
 2025-09-02T06:02:54.852748Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
 2025-09-02T06:02:54.852804Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T06:47:17.003202Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/components/send-packages/SendPackagesDashboard.tsx")}
+2025-09-02T06:47:17.006401Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T06:47:17.018270Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T06:47:17.085738Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/components/send-packages/SendPackagesDashboard.tsx")}
+2025-09-02T06:47:17.085754Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T06:47:17.085832Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T06:48:52.490464Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T06:48:52.490478Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T06:54:05.398284Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("XXQ8Vu5i"), AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T06:54:05.398330Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T06:55:22.800288Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T06:55:22.800309Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T06:57:43.402956Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T06:57:43.402971Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T06:59:38.309568Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T06:59:38.309655Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T07:06:11.521947Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
+2025-09-02T07:06:11.522463Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:06:11.622290Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
+2025-09-02T07:06:11.622308Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:06:11.622437Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun

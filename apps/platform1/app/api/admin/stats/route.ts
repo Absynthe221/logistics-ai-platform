@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
       activeShipments,
       totalRevenue: totalRevenue._sum.value || 0,
       systemHealth,
-      recentAlerts: recentAlerts.map(alert => ({
+      recentAlerts: recentAlerts.map((alert: any) => ({
         id: alert.id,
         type: 'warning' as const,
         message: `Tracking exception: ${alert.description}`,
