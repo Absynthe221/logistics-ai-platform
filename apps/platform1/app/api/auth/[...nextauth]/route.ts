@@ -36,14 +36,27 @@ const handler = NextAuth({
             return null
           }
 
-          // For demo mode, accept any email/password combination
-          // In production, this should be replaced with proper database authentication
+          const prisma = getPrisma()
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email }
+          })
+
+          if (!user || !user.password) {
+            return null
+          }
+
+          const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
+
+          if (!isPasswordValid) {
+            return null
+          }
+
           return {
-            id: `user_${Date.now()}`,
-            email: credentials.email,
-            name: 'Demo User',
-            role: 'SHIPPER',
-            companyId: null
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+            companyId: user.companyId
           }
         } catch (error) {
           console.error('Authorization error:', error)
