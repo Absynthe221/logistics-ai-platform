@@ -2171,3 +2171,102 @@
 2025-09-02T07:06:11.622290Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
 2025-09-02T07:06:11.622308Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
 2025-09-02T07:06:11.622437Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:09:08.221696Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml"), AnchoredSystemPathBuf("XXZDVkCG")}
+2025-09-02T07:09:08.221781Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T07:09:25.827508Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
+2025-09-02T07:09:25.827578Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:09:25.839333Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:13:35.028571Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts")}
+2025-09-02T07:13:35.028671Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:14:14.429549Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts")}
+2025-09-02T07:14:14.429580Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:14:14.429699Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:20:49.233500Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/package.json")}
+2025-09-02T07:20:49.233564Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:21:26.232638Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/package.json")}
+2025-09-02T07:21:26.232657Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:21:26.232731Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:27:09.249647Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/package.json")}
+2025-09-02T07:27:09.250023Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:28:02.041764Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("XXU9C3B2"), AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T07:28:02.041777Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T07:28:54.040463Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T07:28:54.040478Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T07:29:09.541504Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/package.json")}
+2025-09-02T07:29:09.541524Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:29:09.557166Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:31:18.850764Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package-lock.json")}
+2025-09-02T07:31:18.850869Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T07:48:47.868169Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
+2025-09-02T07:48:47.868230Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:48:47.868349Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:48:48.371078Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts")}
+2025-09-02T07:48:48.371096Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:48:48.405494Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:48:48.468749Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts")}
+2025-09-02T07:48:48.468762Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:48:48.468826Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T07:48:48.767659Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/package.json")}
+2025-09-02T07:48:48.767675Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T07:48:48.772604Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:06:36.450252Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/.eslintrc.json")}
+2025-09-02T14:06:36.453380Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:06:36.640219Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/.eslintrc.json")}
+2025-09-02T14:06:36.640238Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:08:25.540668Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/.eslintrc.json")}
+2025-09-02T14:08:25.540683Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:09:35.141973Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/.eslintrc.json")}
+2025-09-02T14:09:35.141992Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:11:05.841613Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/.eslintrc.json")}
+2025-09-02T14:11:05.841629Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:11:05.841695Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:19:25.937178Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/env.ts")}
+2025-09-02T14:19:25.937229Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:19:26.034851Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/env.ts")}
+2025-09-02T14:19:26.034873Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:19:26.034947Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:20:37.036609Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/env.ts")}
+2025-09-02T14:20:37.036625Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:20:37.036682Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:25:06.759174Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml")}
+2025-09-02T14:25:06.759403Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T14:26:37.437930Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/lib/prisma.ts")}
+2025-09-02T14:26:37.437989Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:26:45.038806Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/signup/route.ts")}
+2025-09-02T14:26:45.038819Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:26:56.737483Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T14:26:56.737567Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:26:56.837339Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts")}
+2025-09-02T14:26:56.837419Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:26:56.837691Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:28:14.137808Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("netlify.toml"), AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/auth/signup/route.ts"), AnchoredSystemPathBuf("apps/platform1/lib/prisma.ts")}
+2025-09-02T14:28:14.137874Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-02T14:28:14.142835Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:28:14.237028Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/auth/[...nextauth]/route.ts"), AnchoredSystemPathBuf("apps/platform1/lib/prisma.ts")}
+2025-09-02T14:28:14.237042Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:28:14.237123Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:32:30.546835Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts")}
+2025-09-02T14:32:30.546853Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:32:50.747272Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts")}
+2025-09-02T14:32:50.747291Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:10.746844Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/[id]/status/route.ts")}
+2025-09-02T14:33:10.746856Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:10.850501Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/[id]/status/route.ts")}
+2025-09-02T14:33:10.850515Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:10.850578Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:33:26.848270Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/freight/route.ts")}
+2025-09-02T14:33:26.848656Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:31.747070Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/tracking/route.ts")}
+2025-09-02T14:33:31.747087Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:41.948907Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/loads/route.ts")}
+2025-09-02T14:33:41.948958Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:33:49.847899Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/shipments/route.ts")}
+2025-09-02T14:33:49.847917Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:47:27.963574Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/tracking/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/shipments/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/admin/stats/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/[id]/status/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/freight/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/loads/route.ts")}
+2025-09-02T14:47:27.969729Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:47:27.995207Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:47:28.030086Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/loads/route.ts"), AnchoredSystemPathBuf("apps/platform1/app/api/driver/deliveries/[id]/status/route.ts")}
+2025-09-02T14:47:28.030101Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))
+2025-09-02T14:47:28.030158Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-02T14:48:36.129722Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/platform1/app/api/tracking/route.ts")}
+2025-09-02T14:48:36.129749Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@logistics/platform1"), path: AnchoredSystemPathBuf("apps/platform1") }}))

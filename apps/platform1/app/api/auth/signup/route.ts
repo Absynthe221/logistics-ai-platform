@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
   try {
+    const prisma = getPrisma()
     const { name, email, phone, password, role, companyName } = await request.json()
 
     // Validate required fields

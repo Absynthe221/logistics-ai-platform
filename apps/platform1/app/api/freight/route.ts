@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
 
 export async function POST(request: NextRequest) {
   try {
+    const prisma = getPrisma()
     // Get the authenticated user session
     const session = await getServerSession()
     
@@ -147,6 +148,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    const prisma = getPrisma()
     const session = await getServerSession()
     
     if (!session) {

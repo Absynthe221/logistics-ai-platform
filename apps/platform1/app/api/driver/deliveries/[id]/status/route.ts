@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 
 export async function PATCH(
   request: NextRequest,
@@ -14,6 +14,8 @@ export async function PATCH(
 
     const { status } = await request.json()
     const deliveryId = params.id
+
+    const prisma = getPrisma()
 
     // Verify the delivery belongs to this driver
     const delivery = await prisma.shipment.findFirst({

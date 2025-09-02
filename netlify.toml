@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --prefix apps/platform1 && npm run --prefix apps/platform1 prisma:generate && npm run --prefix apps/platform1 build"
+  command = "npm install --prefix apps/platform1 --install-strategy=nested && npm run --prefix apps/platform1 prisma:generate && npm run --prefix apps/platform1 build"
   publish = "apps/platform1/.next"
 
 [[plugins]]

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,6 +11,8 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url)
     const status = searchParams.get('status')
+
+    const prisma = getPrisma()
 
     let where: any = { carrierId: session.user.id }
     if (status) where.status = status
