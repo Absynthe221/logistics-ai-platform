@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-logistics-600 hover:bg-logistics-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-logistics-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+
+  .btn-cargo {
+    @apply bg-cargo-500 hover:bg-cargo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cargo-400 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  
+  .barcode-card {
+    @apply bg-gradient-to-br from-logistics-50 to-cargo-50 border border-logistics-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-in-transit {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .status-delivered {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-delayed {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .load-board-item {
+    @apply bg-white border border-gray-200 rounded-lg p-4 hover:border-logistics-300 hover:shadow-sm transition-all duration-200 cursor-pointer;
+  }
+
+  .load-board-item:hover {
+    @apply transform translate-y-[-1px];
+  }
+
+  .road-report-severity-low {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .road-report-severity-medium {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+
+  .road-report-severity-high {
+    @apply bg-orange-100 text-orange-800 border-orange-200;
+  }
+
+  .road-report-severity-critical {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-enter {
+    animation: enter 0.3s ease-out;
+  }
+  
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-logistics-600 to-route-600 bg-clip-text text-transparent;
+  }
+
+  .truck-animation {
+    animation: truckDrive 2s ease-in-out infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Map container styling */
+.map-container {
+  @apply rounded-lg overflow-hidden border border-gray-200;
+}
+
+/* Barcode scanner styling */
+.qr-scanner {
+  @apply rounded-lg overflow-hidden border-2 border-dashed border-gray-300;
+}
+
+.qr-scanner.active {
+  @apply border-logistics-500;
+}
+
+/* Progress indicators */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply bg-gradient-to-r from-logistics-500 to-route-500 h-2 rounded-full transition-all duration-300;
+}
+
+/* Load utilization indicators */
+.utilization-low {
+  @apply bg-green-500;
+}
+
+.utilization-medium {
+  @apply bg-yellow-500;
+}
+
+.utilization-high {
+  @apply bg-orange-500;
+}
+
+.utilization-full {
+  @apply bg-red-500;
+}
+
+/* Nigerian flag colors for branding */
+.nigeria-gradient {
+  background: linear-gradient(135deg, #008751 0%, #ffffff 50%, #008751 100%);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .card {
+    @apply p-4;
+  }
+  
+  .barcode-card {
+    @apply p-4;
+  }
+
+  .load-board-item {
+    @apply p-3;
+  }
+}
+
+/* Print styles for shipping labels */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  .barcode-label {
+    @apply text-black bg-white;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+

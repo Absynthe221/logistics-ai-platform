@@ -1,0 +1,28 @@
+{
+  "name": "logistics-ai-platform",
+  "version": "1.0.0",
+  "description": "AI-powered logistics platform for Nigeria & ECOWAS",
+  "private": true,
+  "keywords": ["logistics", "freight", "nigeria", "ecowas", "ai", "nextjs", "typescript"],
+  "author": "Logistics AI Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.12.4",
+    "turbo": "^1.12.4"
+  },
+  "packageManager": "npm@8.15.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
+
+
+

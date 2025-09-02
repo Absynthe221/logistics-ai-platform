@@ -1,0 +1,542 @@
+
+// Logistics AI Platform Database Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Core User Management
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  phone     String?  @unique
+  name      String
+  avatar    String?
+  role      String   @default("SHIPPER") // ADMIN, SHIPPER, CARRIER, DRIVER, FREIGHT_FORWARDER, CUSTOMS_AGENT
+  status    String   @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED, PENDING_VERIFICATION
+  companyId String?
+  
+  // Profile details
+  companyName    String?
+  businessType   String? // IMPORTER, EXPORTER, MANUFACTURER, DISTRIBUTOR, RETAILER, LOGISTICS_PROVIDER, FREIGHT_FORWARDER, INDIVIDUAL
+  location       String?
+  address        String? // JSON as string for SQLite
+  verification   String? // JSON as string for SQLite
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastLoginAt DateTime?
+  
+  // Relations
+  shipmentsAsShipper Shipment[] @relation("ShipperShipments")
+  shipmentsAsCarrier Shipment[] @relation("CarrierShipments")
+  loads              Load[]
+  payments           Payment[]
+  roadReports        RoadReport[]
+  invoices           Invoice[]
+  customsDeclarations CustomsDeclaration[]
+  freight            Freight[]
+  
+  @@map("users")
+}
+
+model Company {
+  id            String @id @default(cuid())
+  name          String
+  businessType  String // IMPORTER, EXPORTER, MANUFACTURER, DISTRIBUTOR, RETAILER, LOGISTICS_PROVIDER, FREIGHT_FORWARDER, INDIVIDUAL
+  registrationNumber String?
+  taxId         String?
+  address       String // JSON as string for SQLite
+  contactPerson String
+  email         String
+  phone         String
+  
+  // Verification
+  isVerified    Boolean @default(false)
+  documents     String? // JSON as string for SQLite
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipments Shipment[]
+  loads     Load[]
+  
+  @@map("companies")
+}
+
+// Core Shipment & Barcode System
+model Shipment {
+  id          String @id @default(cuid())
+  barcode     String @unique // Universal tracking barcode
+  
+  // Basic details
+  shipperId   String
+  carrierId   String?
+  companyId   String?
+  
+  // Shipment info
+  origin      String // JSON as string for SQLite
+  destination String // JSON as string for SQLite
+  description String
+  weight      Float?
+  volume      Float?
+  value       Float?
+  currency    String @default("NGN")
+  
+  // Type & Category
+  shipmentType String // DOMESTIC, INTERNATIONAL, IMPORT, EXPORT, TRANSIT
+  category     String? // Electronics, Food, Textiles, etc.
+  hsCode       String? // For customs
+  
+  // Status & Tracking
+  status      String @default("PENDING") // PENDING, CONFIRMED, IN_TRANSIT, OUT_FOR_DELIVERY, DELIVERED, DELAYED, CANCELLED, EXCEPTION
+  priority    String @default("NORMAL") // LOW, NORMAL, HIGH, URGENT
+  
+  // Timing
+  estimatedDelivery DateTime?
+  actualDelivery    DateTime?
+  
+  // Financial
+  quotedPrice Float?
+  finalPrice  Float?
+  paid        Boolean @default(false)
+  
+  // Metadata
+  instructions String?
+  tags         String? // JSON as string for SQLite
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipper     User     @relation("ShipperShipments", fields: [shipperId], references: [id])
+  carrier     User?    @relation("CarrierShipments", fields: [carrierId], references: [id])
+  company     Company? @relation(fields: [companyId], references: [id])
+  
+  loads       Load[]
+  trackingEvents TrackingEvent[]
+  documents   Document[]
+  payments    Payment[]
+  invoice     Invoice?
+  customsDeclaration CustomsDeclaration?
+  
+  @@map("shipments")
+}
+
+// LTL Load Optimization
+model Load {
+  id          String @id @default(cuid())
+  loadNumber  String @unique
+  
+  // Load details
+  shipperId   String // Shipper who created the load
+  companyId   String?
+  origin      String // JSON as string for SQLite
+  destination String // JSON as string for SQLite
+  
+  // Capacity
+  maxWeight   Float
+  maxVolume   Float
+  currentWeight Float @default(0)
+  currentVolume Float @default(0)
+  
+  // Status
+  status      String @default("PLANNING") // PLANNING, READY, IN_TRANSIT, COMPLETED, CANCELLED
+  vehicleType String
+  vehicleId   String?
+  
+  // Timing
+  pickupDate    DateTime?
+  deliveryDate  DateTime?
+  departureTime DateTime?
+  estimatedArrival DateTime?
+  actualArrival    DateTime?
+  
+  // Load details
+  rate        Float
+  weight      Float
+  volume      Float
+  cargoType   String
+  description String
+  requirements String? // JSON as string for SQLite
+  
+  // AI Optimization
+  aiOptimized Boolean @default(false)
+  optimizationScore Float?
+  ltlOpportunity Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipper    User      @relation(fields: [shipperId], references: [id])
+  company    Company?  @relation(fields: [companyId], references: [id])
+  shipments Shipment[]
+  trackingEvents TrackingEvent[]
+  
+  @@map("loads")
+}
+
+// Real-time Tracking
+model TrackingEvent {
+  id          String @id @default(cuid())
+  
+  // References
+  shipmentId  String?
+  loadId      String?
+  freightId   String?
+  
+  // Event details
+  eventType   String // CREATED, PICKED_UP, IN_TRANSIT, DELAYED, OUT_FOR_DELIVERY, DELIVERED, EXCEPTION, STATUS_UPDATE
+  status      String
+  location    String // JSON as string for SQLite
+  timestamp   DateTime @default(now())
+  
+  // Additional data
+  description String?
+  metadata    String? // JSON as string for SQLite
+  
+  // Relations
+  shipment    Shipment? @relation(fields: [shipmentId], references: [id])
+  load        Load?     @relation(fields: [loadId], references: [id])
+  freight     Freight?  @relation(fields: [freightId], references: [id])
+  
+  @@map("tracking_events")
+}
+
+// Road Intelligence (AI-driven)
+model RoadReport {
+  id          String @id @default(cuid())
+  
+  // Reporter
+  userId      String
+  
+  // Location
+  location    String // JSON as string for SQLite
+  
+  // Report details
+  reportType  String // TRAFFIC, CHECKPOINT, ROAD_CONDITION, SECURITY, WEATHER, ACCIDENT
+  severity    String // LOW, MEDIUM, HIGH, CRITICAL
+  description String
+  photos      String? // JSON as string for SQLite
+  
+  // AI Processing
+  processed   Boolean @default(false)
+  aiTags      String? // JSON as string for SQLite
+  confidence  Float?
+  
+  // Verification
+  verified    Boolean @default(false)
+  verifiedBy  String?
+  verifiedAt  DateTime?
+  
+  // Impact
+  affectedRoutes String? // JSON as string for SQLite
+  estimatedDelay Int? // minutes
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  expiresAt DateTime?
+  
+  // Relations
+  reporter User @relation(fields: [userId], references: [id])
+  
+  @@map("road_reports")
+}
+
+// Customs & International Trade
+model CustomsDeclaration {
+  id            String @id @default(cuid())
+  declarationNumber String @unique
+  
+  // References
+  shipmentId    String @unique
+  userId        String
+  
+  // Declaration details
+  declarationType String // IMPORT, EXPORT, TRANSIT
+  hsCode          String
+  aiSuggestedHsCode String?
+  aiConfidence    Float?
+  
+  // Value & Duties
+  declaredValue   Float
+  currency        String @default("NGN")
+  calculatedDuty  Float?
+  paidDuty        Float?
+  
+  // Status
+  status          String @default("PENDING") // PENDING, SUBMITTED, UNDER_REVIEW, CLEARED, REJECTED
+  submittedAt     DateTime?
+  clearedAt       DateTime?
+  
+  // Documents
+  commercialInvoice Boolean @default(false)
+  packingList      Boolean @default(false)
+  billOfLading     Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipment  Shipment @relation(fields: [shipmentId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  
+  @@map("customs_declarations")
+}
+
+// AI-Generated Invoices & Documents
+model Invoice {
+  id            String @id @default(cuid())
+  invoiceNumber String @unique
+  
+  // References
+  shipmentId    String @unique
+  userId        String
+  
+  // Invoice details
+  invoiceType   String // SHIPMENT, STORAGE, HANDLING, CUSTOMS
+  template      String // Template used
+  
+  // Financial
+  subtotal      Float
+  tax           Float?
+  total         Float
+  currency      String @default("NGN")
+  
+  // Status
+  status        String @default("DRAFT") // DRAFT, SENT, PAID, OVERDUE, CANCELLED
+  sentAt        DateTime?
+  paidAt        DateTime?
+  
+  // AI Generation
+  aiGenerated   Boolean @default(false)
+  aiModel       String?
+  
+  // Data
+  invoiceData   String? // JSON as string for SQLite
+  pdfUrl        String?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
+  
+  @@map("invoices")
+}
+
+// Document Management
+model Document {
+  id          String @id @default(cuid())
+  
+  // References
+  shipmentId  String
+  
+  // Document details
+  documentType String // COMMERCIAL_INVOICE, PACKING_LIST, BILL_OF_LADING, CERTIFICATE_OF_ORIGIN, INSURANCE_CERTIFICATE, CUSTOMS_DECLARATION
+  name         String
+  description  String?
+  fileUrl      String
+  fileSize     Int?
+  mimeType     String?
+  
+  // AI Processing
+  processed    Boolean @default(false)
+  extractedData String? // JSON as string for SQLite
+  ocrText      String?
+  
+  // Metadata
+  tags         String? // JSON as string for SQLite
+  isPublic     Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id])
+  
+  @@map("documents")
+}
+
+// Payment & Escrow System
+model Payment {
+  id            String @id @default(cuid())
+  paymentId     String @unique // External payment provider ID
+  
+  // References
+  userId        String
+  shipmentId    String?
+  
+  // Payment details
+  amount        Float
+  currency      String @default("NGN")
+  method        String // CARD, BANK_TRANSFER, MOBILE_MONEY, CASH, ESCROW
+  provider      String // Paystack, Flutterwave, etc.
+  
+  // Status
+  status        String @default("PENDING") // PENDING, PROCESSING, COMPLETED, FAILED, CANCELLED, REFUNDED
+  escrowStatus  String @default("NONE") // NONE, HELD, RELEASED, DISPUTED
+  
+  // Timestamps
+  createdAt     DateTime @default(now())
+  processedAt   DateTime?
+  releasedAt    DateTime?
+  
+  // Metadata
+  description   String?
+  metadata      String? // JSON as string for SQLite
+  
+  // Relations
+  user     User      @relation(fields: [userId], references: [id])
+  shipment Shipment? @relation(fields: [shipmentId], references: [id])
+  
+  @@map("payments")
+}
+
+// AI Models & Analytics
+model AiModel {
+  id          String @id @default(cuid())
+  name        String
+  version     String
+  modelType   String // ROUTE_OPTIMIZATION, ETA_PREDICTION, FRAUD_DETECTION, HS_CODE_CLASSIFICATION, DOCUMENT_PROCESSING
+  
+  // Configuration
+  config      String // JSON as string for SQLite
+  endpoints   String // JSON as string for SQLite
+  
+  // Performance
+  accuracy    Float?
+  lastTrained DateTime?
+  
+  // Status
+  isActive    Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([name, version])
+  @@map("ai_models")
+}
+
+// Universal Freight System
+model Freight {
+  id          String @id @default(cuid())
+  barcode     String @unique
+  
+  // Shipper Information
+  shipperId   String
+  shipperName String
+  shipperContact String
+  shipperEmail String
+  shipperPhone String
+  shipperAddress String // JSON as string for SQLite
+  
+  // Consignee Information
+  consigneeName String
+  consigneeContact String
+  consigneeEmail String
+  consigneePhone String
+  consigneeAddress String // JSON as string for SQLite
+  
+  // Shipment Details
+  freightType String // FCL, LCL, LTL, COURIER
+  transportMode String // SEA, AIR, LAND
+  cargoDescription String
+  quantity    Int
+  units       String
+  weight      Float
+  dimensions  String // JSON as string for SQLite
+  volume      Float
+  packagingType String
+  specialHandling String // JSON as string for SQLite
+  
+  // Origin & Destination
+  originLocation String
+  destinationLocation String
+  preferredRoute String
+  incoterms   String
+  
+  // Customs & Documentation
+  isInternational Boolean @default(false)
+  invoiceNumber String?
+  invoiceValue Float?
+  currency    String
+  countryOfOrigin String
+  countryOfDestination String
+  hsCode      String?
+  
+  // Service Options
+  insuranceRequired Boolean @default(false)
+  escrowPayment Boolean @default(false)
+  pickupService Boolean @default(true)
+  deliveryType String
+  
+  // Payment & Billing
+  paymentMethod String
+  billingAddress String // JSON as string for SQLite
+  taxNumber    String?
+  freightQuote Float
+  
+  // Tracking Setup
+  carrierAssignment String?
+  notifications String // JSON as string for SQLite
+  
+  // Dates
+  pickupDate  DateTime?
+  deliveryDate DateTime?
+  additionalNotes String?
+  
+  // Status & Admin
+  status      String @default("PENDING_APPROVAL") // PENDING_APPROVAL, APPROVED, REJECTED, IN_TRANSIT, COMPLETED
+  adminNotified Boolean @default(false)
+  adminNotificationSent DateTime?
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  shipper     User     @relation(fields: [shipperId], references: [id])
+  trackingEvents TrackingEvent[]
+  adminNotifications AdminNotification[]
+  
+  @@map("freight")
+}
+
+model AdminNotification {
+  id          String @id @default(cuid())
+  type        String // NEW_FREIGHT_REQUEST, SYSTEM_ALERT, USER_ISSUE
+  title       String
+  message     String
+  freightId   String?
+  barcode     String?
+  priority    String // LOW, MEDIUM, HIGH, CRITICAL
+  isRead      Boolean @default(false)
+  createdAt   DateTime @default(now())
+  
+  // Relations
+  freight    Freight? @relation(fields: [freightId], references: [id])
+  
+  @@map("admin_notifications")
+}
+
+// System Settings & Configuration
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String // JSON as string for SQLite
+  
+  updatedAt DateTime @updatedAt
+  
+  @@map("settings")
+}
+
